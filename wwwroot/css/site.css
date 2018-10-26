@@ -1,0 +1,20 @@
+﻿
+  /* latin */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url(Roboto-Regular.ttf);
+  }
+  
+  
+  body {
+    background-color: rgb(66, 66, 66);
+    color: rgb(230,230,230);
+    overflow: auto;
+    font-family: 'Roboto';
+    padding: 30px;
+}
+h1{
+    margin-top: 0;
+}

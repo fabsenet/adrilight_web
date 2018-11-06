@@ -56,7 +56,7 @@ namespace adrilight_web
             {
                 routes.MapRoute(
                     name: "EmbeddedReleaseInfo",
-                    template: "{version}/{lang}",
+                    template: "{version}/{lang?}",
                     defaults: new { Controller = "ReleaseInfo", Action = "Index" }
                 );
 

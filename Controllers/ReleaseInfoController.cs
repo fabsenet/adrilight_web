@@ -10,9 +10,11 @@ namespace adrilight_web.Controllers
 {
     public class ReleaseInfoController : Controller
     {
-        public IActionResult Index(string version, string lang)
+        public IActionResult Index(string version, string lang = null)
         {
             string view = null;
+            lang = lang ?? "en";
+            
             switch (version)
             {
                 case "2.0.7":

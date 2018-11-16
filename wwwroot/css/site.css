@@ -18,3 +18,10 @@
 h1{
     margin-top: 0;
 }
+.important {
+  color: #ff9191;
+}
+
+a:link, a:active, a:hover, a:visited {
+  color: #a4b2ff;
+}

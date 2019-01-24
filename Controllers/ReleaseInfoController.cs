@@ -22,18 +22,17 @@ namespace adrilight_web.Controllers
                 case "2.0.7":
                 //case "2.0.8": this version was never released
                 case "2.0.9":
-                    break;
+                    ViewBag.Version = version;
+                    return View($"v{version}_{lang}");
 
                 case "private_build":
-                    break;
+                    return View($"{version}_{lang}");
 
                 default:
                     version = "unknown";
-                    break;
+                    return View($"{version}_{lang}");
             }
 
-            ViewBag.Version = version;
-            return View($"{version}_{lang}");
         }
     }
     public class HomeController : Controller

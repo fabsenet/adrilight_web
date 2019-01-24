@@ -12,30 +12,28 @@ namespace adrilight_web.Controllers
     {
         public IActionResult Index(string version, string lang = null)
         {
-            string view = null;
-            lang = lang ?? "en";
-            
+            //we support "de" and "en" for now...
+            lang = (lang ?? "en").StartsWith("de", StringComparison.OrdinalIgnoreCase) ? "de" : "en";
+
+
             switch (version)
             {
+                //supported versions only have to have a case here
                 case "2.0.7":
-                    if (lang.StartsWith("de", StringComparison.OrdinalIgnoreCase))
-                    {
-                        view = "v2.0.7_de";
-                    }
-                    else
-                    {
-                        //en is default
-                        view = "v2.0.7_en";
-                    }
+                //case "2.0.8": this version was never released
+                case "2.0.9":
+                    break;
+
+                case "private_build":
+                    break;
+
+                default:
+                    version = "unknown";
                     break;
             }
-            if (view != null)
-            {
-                ViewBag.Version = version;
-                return View(view);
-            }
 
-            return this.NotFound("This version does not exist (yet).");
+            ViewBag.Version = version;
+            return View($"{version}_{lang}");
         }
     }
     public class HomeController : Controller

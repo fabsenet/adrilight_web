@@ -13,8 +13,8 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
-  displayName: 'dotnet build $(buildConfiguration)'
+- script: dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
+  displayName: 'dotnet publish $(buildConfiguration)'
 
 # Publish Pipeline Artifact
 # https://docs.microsoft.com/de-de/azure/devops/pipelines/languages/dotnet-core?view=azure-devops#package-and-deliver-your-code

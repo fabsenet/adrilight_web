@@ -13,12 +13,9 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- script: dotnet build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
   displayName: 'dotnet build $(buildConfiguration)'
 
 # Publish Pipeline Artifact
-# Publish a local directory or file as a named artifact for the current pipeline.
-- task: PublishPipelineArtifact@0
-  inputs:
-    artifactName: 'drop' 
-    targetPath: $(build.binariesDirectory)
+# https://docs.microsoft.com/de-de/azure/devops/pipelines/languages/dotnet-core?view=azure-devops#package-and-deliver-your-code
+- task: PublishBuildArtifacts@1
